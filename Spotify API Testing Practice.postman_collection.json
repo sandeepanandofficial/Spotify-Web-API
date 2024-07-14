@@ -1,0 +1,2760 @@
+{
+	"info": {
+		"_postman_id": "cd7e16d5-5ce0-4173-9c0f-4b5ab3fae015",
+		"name": "Spotify API Testing Practice",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29109148",
+		"_collection_link": "https://bold-firefly-633900.postman.co/workspace/API-Testing-Project~5b3c7739-acd5-434a-a862-949723c2deca/collection/29109148-cd7e16d5-5ce0-4173-9c0f-4b5ab3fae015?action=share&source=collection_link&creator=29109148"
+	},
+	"item": [
+		{
+			"name": "Album",
+			"item": [
+				{
+					"name": "Get Album",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "scope",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "{{Client Secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "{{Client ID}}",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "Spotify API 1",
+									"type": "string"
+								},
+								{
+									"key": "state",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://accounts.spotify.com/api/token",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://accounts.spotify.com/authorize",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "string"
+								},
+								{
+									"key": "useBrowser",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Base URL}}/v1/albums/:{id}",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"v1",
+								"albums",
+								":{id}"
+							],
+							"variable": [
+								{
+									"key": "{id}",
+									"value": "4aawyAB9vmqN3uQ7FjRGTy"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Several Albums",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "scope",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "{{Client Secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "{{Client ID}}",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "Spotify API 1",
+									"type": "string"
+								},
+								{
+									"key": "state",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://accounts.spotify.com/api/token",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://accounts.spotify.com/authorize",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "string"
+								},
+								{
+									"key": "useBrowser",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Base URL}}/v1/albums?ids=382ObEPsp2rxGrnsizN5TX,1A2GTWGtFfWp7KSQTwWOyo,2noRn2Aes5aoNVsU6iWThc&market=ES",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"v1",
+								"albums"
+							],
+							"query": [
+								{
+									"key": "ids",
+									"value": "382ObEPsp2rxGrnsizN5TX,1A2GTWGtFfWp7KSQTwWOyo,2noRn2Aes5aoNVsU6iWThc"
+								},
+								{
+									"key": "market",
+									"value": "ES"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Album Tracks",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "scope",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "{{Client Secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "{{Client ID}}",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "Spotify API 1",
+									"type": "string"
+								},
+								{
+									"key": "state",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://accounts.spotify.com/api/token",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://accounts.spotify.com/authorize",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "string"
+								},
+								{
+									"key": "useBrowser",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Base URL}}/v1/albums/:{id}/tracks?market=ES&limit=10&offset=5",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"v1",
+								"albums",
+								":{id}",
+								"tracks"
+							],
+							"query": [
+								{
+									"key": "market",
+									"value": "ES"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "offset",
+									"value": "5"
+								}
+							],
+							"variable": [
+								{
+									"key": "{id}",
+									"value": "4aawyAB9vmqN3uQ7FjRGTy"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User's Saved Albums",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "scope",
+									"value": "{{Authorization scopes-Get User's Saved Albums}}",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "{{Client Secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "{{Client ID}}",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "Spotify API 1",
+									"type": "string"
+								},
+								{
+									"key": "state",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://accounts.spotify.com/api/token",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://accounts.spotify.com/authorize",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "string"
+								},
+								{
+									"key": "useBrowser",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Base URL}}/v1/me/albums?limit=10&offset=5&market=ES",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"v1",
+								"me",
+								"albums"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "offset",
+									"value": "5"
+								},
+								{
+									"key": "market",
+									"value": "ES"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save Albums for Current User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "scope",
+									"value": "{{Authorization scopes-Save Albums for Current User}}",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "{{Client Secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "{{Client ID}}",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "Spotify API 1",
+									"type": "string"
+								},
+								{
+									"key": "state",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://accounts.spotify.com/api/token",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://accounts.spotify.com/authorize",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "string"
+								},
+								{
+									"key": "useBrowser",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ids\": [\r\n        \"string\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Base URL}}/v1/me/albums?ids=382ObEPsp2rxGrnsizN5TX,1A2GTWGtFfWp7KSQTwWOyo,2noRn2Aes5aoNVsU6iWThc",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"v1",
+								"me",
+								"albums"
+							],
+							"query": [
+								{
+									"key": "ids",
+									"value": "382ObEPsp2rxGrnsizN5TX,1A2GTWGtFfWp7KSQTwWOyo,2noRn2Aes5aoNVsU6iWThc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Users' Saved Albums",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "scope",
+									"value": "{{Authorization scopes-Remove Users' Saved Albums}}",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "{{Client Secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "{{Client ID}}",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "Spotify API 1",
+									"type": "string"
+								},
+								{
+									"key": "state",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://accounts.spotify.com/api/token",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://accounts.spotify.com/authorize",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "string"
+								},
+								{
+									"key": "useBrowser",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ids\": [\r\n        \"string\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Base URL}}/v1/me/albums?ids=382ObEPsp2rxGrnsizN5TX,1A2GTWGtFfWp7KSQTwWOyo,2noRn2Aes5aoNVsU6iWThc",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"v1",
+								"me",
+								"albums"
+							],
+							"query": [
+								{
+									"key": "ids",
+									"value": "382ObEPsp2rxGrnsizN5TX,1A2GTWGtFfWp7KSQTwWOyo,2noRn2Aes5aoNVsU6iWThc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check User's Saved Albums",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "scope",
+									"value": "{{Authorization scopes-Check User's Saved Albums}}",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "{{Client Secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "{{Client ID}}",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "Spotify API 1",
+									"type": "string"
+								},
+								{
+									"key": "state",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://accounts.spotify.com/api/token",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://accounts.spotify.com/authorize",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "string"
+								},
+								{
+									"key": "useBrowser",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Base URL}}/v1/me/albums/contains?ids=382ObEPsp2rxGrnsizN5TX,1A2GTWGtFfWp7KSQTwWOyo,2noRn2Aes5aoNVsU6iWThc",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"v1",
+								"me",
+								"albums",
+								"contains"
+							],
+							"query": [
+								{
+									"key": "ids",
+									"value": "382ObEPsp2rxGrnsizN5TX,1A2GTWGtFfWp7KSQTwWOyo,2noRn2Aes5aoNVsU6iWThc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get New Releases",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "scope",
+									"value": "{{Authorization scopes-Check User's Saved Albums}}",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "{{Client Secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "{{Client ID}}",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "Spotify API 1",
+									"type": "string"
+								},
+								{
+									"key": "state",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://accounts.spotify.com/api/token",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://accounts.spotify.com/authorize",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "string"
+								},
+								{
+									"key": "useBrowser",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Base URL}}/v1/browse/new-releases?limit=10&offset=5",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"v1",
+								"browse",
+								"new-releases"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "offset",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Artists",
+			"item": [
+				{
+					"name": "Get Artist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "scope",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "{{Client Secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "{{Client ID}}",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "Spotify API 1",
+									"type": "string"
+								},
+								{
+									"key": "state",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://accounts.spotify.com/api/token",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://accounts.spotify.com/authorize",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "string"
+								},
+								{
+									"key": "useBrowser",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Base URL}}/v1/artists/:{id}/related-artists",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"v1",
+								"artists",
+								":{id}",
+								"related-artists"
+							],
+							"variable": [
+								{
+									"key": "{id}",
+									"value": "0TnOYISbd1XYRBk9myaseg"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Several Artists",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "scope",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "{{Client Secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "{{Client ID}}",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "Spotify API 1",
+									"type": "string"
+								},
+								{
+									"key": "state",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://accounts.spotify.com/api/token",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://accounts.spotify.com/authorize",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "string"
+								},
+								{
+									"key": "useBrowser",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Base URL}}/v1/artists?ids=2CIMQHirSU0MQqyYHq0eOx,57dN52uHvrHOxijzpIgu3E,1vCWHaC5f2uS3yhpwWbIA6",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"v1",
+								"artists"
+							],
+							"query": [
+								{
+									"key": "ids",
+									"value": "2CIMQHirSU0MQqyYHq0eOx,57dN52uHvrHOxijzpIgu3E,1vCWHaC5f2uS3yhpwWbIA6"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Artist's Albums",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "scope",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "{{Client Secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "{{Client ID}}",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "Spotify API 1",
+									"type": "string"
+								},
+								{
+									"key": "state",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://accounts.spotify.com/api/token",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://accounts.spotify.com/authorize",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "string"
+								},
+								{
+									"key": "useBrowser",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Base URL}}/v1/artists/:{id}/albums?include_groups=single&market=ES&limit=10&offset=5",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"v1",
+								"artists",
+								":{id}",
+								"albums"
+							],
+							"query": [
+								{
+									"key": "include_groups",
+									"value": "single"
+								},
+								{
+									"key": "market",
+									"value": "ES"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "offset",
+									"value": "5"
+								}
+							],
+							"variable": [
+								{
+									"key": "{id}",
+									"value": "0TnOYISbd1XYRBk9myaseg"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Artist's Top Tracks",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "scope",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "{{Client Secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "{{Client ID}}",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "Spotify API 1",
+									"type": "string"
+								},
+								{
+									"key": "state",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://accounts.spotify.com/api/token",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://accounts.spotify.com/authorize",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "string"
+								},
+								{
+									"key": "useBrowser",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Base URL}}/v1/artists/:{id}/top-tracks?market=ES",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"v1",
+								"artists",
+								":{id}",
+								"top-tracks"
+							],
+							"query": [
+								{
+									"key": "market",
+									"value": "ES"
+								}
+							],
+							"variable": [
+								{
+									"key": "{id}",
+									"value": "0TnOYISbd1XYRBk9myaseg"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Artist's Related Artists",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "scope",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "{{Client Secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "{{Client ID}}",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "Spotify API 1",
+									"type": "string"
+								},
+								{
+									"key": "state",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://accounts.spotify.com/api/token",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://accounts.spotify.com/authorize",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "string"
+								},
+								{
+									"key": "useBrowser",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Base URL}}/v1/artists/:{id}/related-artists",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"v1",
+								"artists",
+								":{id}",
+								"related-artists"
+							],
+							"variable": [
+								{
+									"key": "{id}",
+									"value": "0TnOYISbd1XYRBk9myaseg"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Audiobooks",
+			"item": [
+				{
+					"name": "Get an Audiobook",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "scope",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "{{Client Secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "{{Client ID}}",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "Spotify API 1",
+									"type": "string"
+								},
+								{
+									"key": "state",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://accounts.spotify.com/api/token",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://accounts.spotify.com/authorize",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "string"
+								},
+								{
+									"key": "useBrowser",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Base URL}}/v1/audiobooks/:{id}?market=ES",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"v1",
+								"audiobooks",
+								":{id}"
+							],
+							"query": [
+								{
+									"key": "market",
+									"value": "ES"
+								}
+							],
+							"variable": [
+								{
+									"key": "{id}",
+									"value": "7iHfbu1YPACw6oZPAFJtqe"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Several Audiobooks",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "scope",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "{{Client Secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "{{Client ID}}",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "Spotify API 1",
+									"type": "string"
+								},
+								{
+									"key": "state",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://accounts.spotify.com/api/token",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://accounts.spotify.com/authorize",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "string"
+								},
+								{
+									"key": "useBrowser",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Base URL}}/v1/audiobooks?ids=18yVqkdbdRvS24c0Ilj2ci,1HGw3J3NxZO1TP1BTtVhpZ,7iHfbu1YPACw6oZPAFJtqe&market=ES",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"v1",
+								"audiobooks"
+							],
+							"query": [
+								{
+									"key": "ids",
+									"value": "18yVqkdbdRvS24c0Ilj2ci,1HGw3J3NxZO1TP1BTtVhpZ,7iHfbu1YPACw6oZPAFJtqe"
+								},
+								{
+									"key": "market",
+									"value": "ES"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Audiobook Chapters",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "scope",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "{{Client Secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "{{Client ID}}",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "Spotify API 1",
+									"type": "string"
+								},
+								{
+									"key": "state",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://accounts.spotify.com/api/token",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://accounts.spotify.com/authorize",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "string"
+								},
+								{
+									"key": "useBrowser",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Base URL}}/v1/audiobooks/:{id}/chapters?market=ES&limit=10&offset=5",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"v1",
+								"audiobooks",
+								":{id}",
+								"chapters"
+							],
+							"query": [
+								{
+									"key": "market",
+									"value": "ES"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "offset",
+									"value": "5"
+								}
+							],
+							"variable": [
+								{
+									"key": "{id}",
+									"value": "7iHfbu1YPACw6oZPAFJtqe"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User's Saved Audiobooks",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "scope",
+									"value": "{{Authorization scopes-Check User's Saved Albums}}",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "{{Client Secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "{{Client ID}}",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "Spotify API 1",
+									"type": "string"
+								},
+								{
+									"key": "state",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://accounts.spotify.com/api/token",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://accounts.spotify.com/authorize",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "string"
+								},
+								{
+									"key": "useBrowser",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Base URL}}/v1/me/audiobooks?limit=10&offset=5",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"v1",
+								"me",
+								"audiobooks"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "offset",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save Audiobooks for Current User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "scope",
+									"value": "{{Authorization scopes-Remove Users' Saved Albums}}",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "{{Client Secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "{{Client ID}}",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "Spotify API 1",
+									"type": "string"
+								},
+								{
+									"key": "state",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://accounts.spotify.com/api/token",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://accounts.spotify.com/authorize",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "string"
+								},
+								{
+									"key": "useBrowser",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{Base URL}}/v1/me/audiobooks?ids=18yVqkdbdRvS24c0Ilj2ci,1HGw3J3NxZO1TP1BTtVhpZ,7iHfbu1YPACw6oZPAFJtqe",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"v1",
+								"me",
+								"audiobooks"
+							],
+							"query": [
+								{
+									"key": "ids",
+									"value": "18yVqkdbdRvS24c0Ilj2ci,1HGw3J3NxZO1TP1BTtVhpZ,7iHfbu1YPACw6oZPAFJtqe"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove User's Saved Audiobooks",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "scope",
+									"value": "{{Authorization scopes-Remove Users' Saved Albums}}",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "{{Client Secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "{{Client ID}}",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "Spotify API 1",
+									"type": "string"
+								},
+								{
+									"key": "state",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://accounts.spotify.com/api/token",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://accounts.spotify.com/authorize",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "string"
+								},
+								{
+									"key": "useBrowser",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{Base URL}}/v1/me/audiobooks?ids=18yVqkdbdRvS24c0Ilj2ci,1HGw3J3NxZO1TP1BTtVhpZ,7iHfbu1YPACw6oZPAFJtqe",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"v1",
+								"me",
+								"audiobooks"
+							],
+							"query": [
+								{
+									"key": "ids",
+									"value": "18yVqkdbdRvS24c0Ilj2ci,1HGw3J3NxZO1TP1BTtVhpZ,7iHfbu1YPACw6oZPAFJtqe"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check User's Saved Audiobooks",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "scope",
+									"value": "{{Authorization scopes-Get User's Saved Albums}}",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "{{Client Secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "{{Client ID}}",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "Spotify API 1",
+									"type": "string"
+								},
+								{
+									"key": "state",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://accounts.spotify.com/api/token",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://accounts.spotify.com/authorize",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "string"
+								},
+								{
+									"key": "useBrowser",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Base URL}}/v1/me/audiobooks/contains?ids=18yVqkdbdRvS24c0Ilj2ci,1HGw3J3NxZO1TP1BTtVhpZ,7iHfbu1YPACw6oZPAFJtqe",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"v1",
+								"me",
+								"audiobooks",
+								"contains"
+							],
+							"query": [
+								{
+									"key": "ids",
+									"value": "18yVqkdbdRvS24c0Ilj2ci,1HGw3J3NxZO1TP1BTtVhpZ,7iHfbu1YPACw6oZPAFJtqe"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Categories",
+			"item": [
+				{
+					"name": "Get Several Browse Categories",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "scope",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "{{Client Secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "{{Client ID}}",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "Spotify API 1",
+									"type": "string"
+								},
+								{
+									"key": "state",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://accounts.spotify.com/api/token",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://accounts.spotify.com/authorize",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "string"
+								},
+								{
+									"key": "useBrowser",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Base URL}}/v1/browse/categories?locale=sv_SE&limit=10&offset=5",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"v1",
+								"browse",
+								"categories"
+							],
+							"query": [
+								{
+									"key": "locale",
+									"value": "sv_SE"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "offset",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Browse Category",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "scope",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "{{Client Secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "{{Client ID}}",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "Spotify API 1",
+									"type": "string"
+								},
+								{
+									"key": "state",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://accounts.spotify.com/api/token",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://accounts.spotify.com/authorize",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "string"
+								},
+								{
+									"key": "useBrowser",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Base URL}}/v1/browse/categories/:{category_id}?locale=sv_SE",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"v1",
+								"browse",
+								"categories",
+								":{category_id}"
+							],
+							"query": [
+								{
+									"key": "locale",
+									"value": "sv_SE"
+								}
+							],
+							"variable": [
+								{
+									"key": "{category_id}",
+									"value": "dinner"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Chapters",
+			"item": [
+				{
+					"name": "Get a Chapter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "scope",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "{{Client Secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "{{Client ID}}",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "Spotify API 1",
+									"type": "string"
+								},
+								{
+									"key": "state",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://accounts.spotify.com/api/token",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://accounts.spotify.com/authorize",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "string"
+								},
+								{
+									"key": "useBrowser",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Base URL}}/v1/chapters/:{id}?market=ES",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"v1",
+								"chapters",
+								":{id}"
+							],
+							"query": [
+								{
+									"key": "market",
+									"value": "ES"
+								}
+							],
+							"variable": [
+								{
+									"key": "{id}",
+									"value": "0D5wENdkdwbqlrHoaJ9g29"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Several Chapters",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "scope",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "{{Client Secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "{{Client ID}}",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "Spotify API 1",
+									"type": "string"
+								},
+								{
+									"key": "state",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://accounts.spotify.com/api/token",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://accounts.spotify.com/authorize",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "string"
+								},
+								{
+									"key": "useBrowser",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Base URL}}/v1/chapters?ids=0IsXVP0JmcB2adSE338GkK,3ZXb8FKZGU0EHALYX6uCzU,0D5wENdkdwbqlrHoaJ9g29&market=ES",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"v1",
+								"chapters"
+							],
+							"query": [
+								{
+									"key": "ids",
+									"value": "0IsXVP0JmcB2adSE338GkK,3ZXb8FKZGU0EHALYX6uCzU,0D5wENdkdwbqlrHoaJ9g29"
+								},
+								{
+									"key": "market",
+									"value": "ES"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Episodes",
+			"item": [
+				{
+					"name": "Get Episode",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "scope",
+									"value": "user-read-playback-position",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "{{Client Secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "{{Client ID}}",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "Spotify API 1",
+									"type": "string"
+								},
+								{
+									"key": "state",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://accounts.spotify.com/api/token",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://accounts.spotify.com/authorize",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "string"
+								},
+								{
+									"key": "useBrowser",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Base URL}}/v1/episodes/:{id}?market=ES",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"v1",
+								"episodes",
+								":{id}"
+							],
+							"query": [
+								{
+									"key": "market",
+									"value": "ES"
+								}
+							],
+							"variable": [
+								{
+									"key": "{id}",
+									"value": "512ojhOuo1ktJprKbVcKyQ"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Several Episodes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "scope",
+									"value": "user-read-playback-position",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "{{Client Secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "{{Client ID}}",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "Spotify API 1",
+									"type": "string"
+								},
+								{
+									"key": "state",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://accounts.spotify.com/api/token",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://accounts.spotify.com/authorize",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "string"
+								},
+								{
+									"key": "useBrowser",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Base URL}}/v1/episodes?ids=77o6BIVlYM3msb4MMIL1jH,0Q86acNRm6V9GYx55SXKwf&market=ES",
+							"host": [
+								"{{Base URL}}"
+							],
+							"path": [
+								"v1",
+								"episodes"
+							],
+							"query": [
+								{
+									"key": "ids",
+									"value": "77o6BIVlYM3msb4MMIL1jH,0Q86acNRm6V9GYx55SXKwf"
+								},
+								{
+									"key": "market",
+									"value": "ES"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User's Saved Episodes",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Save Episodes for Current User",
+					"request": {
+						"method": "PUT",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Remove User's Saved Episodes",
+					"request": {
+						"method": "DELETE",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Check User's Saved Episodes",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
